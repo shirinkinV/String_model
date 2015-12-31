@@ -13,11 +13,11 @@
             <RowDefinition Height="328"/>
         </Grid.RowDefinitions>
 
-        <WPF:OpenGLControl Resized="OpenGLControl_Resized" OpenGLDraw="OpenGLControl_OpenGLDraw" OpenGLInitialized="OpenGLControl_OpenGLInitialized"/>
+        <WPF:OpenGLControl x:Name="gl_view" Resized="OpenGLControl_Resized" OpenGLDraw="OpenGLControl_OpenGLDraw" OpenGLInitialized="OpenGLControl_OpenGLInitialized"/>
         <Label x:Name="label" Content="a:" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top" Height="26" Width="19"/>
         <TextBox x:Name="a_box" HorizontalAlignment="Left" Height="23" Margin="29,14,0,0" Grid.Row="1" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="60" TextChanged="a_box_TextChanged"/>
         <Label x:Name="label1" Content="f(x,t):" HorizontalAlignment="Left" Margin="94,10,0,0" Grid.Row="1" VerticalAlignment="Top" Height="26" Width="36"/>
-        <TextBox x:Name="f_box" HorizontalAlignment="Left" Height="23" Margin="130,14,0,0" Grid.Row="1" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="174" TextChanged="f_box_TextChanged"/>
+        <TextBox x:Name="f_box" HorizontalAlignment="Left" Height="23" Margin="130,14,0,0" Grid.Row="1" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="174" TextChanged="f_box_TextChanged" IsEnabled="False"/>
         <Label x:Name="equation_label" Content="Utt=1^2*Uxx" Margin="309,10,10,0" Grid.Row="1" VerticalAlignment="Top" Height="26"/>
         <Label x:Name="label3" Content="t&gt;0," HorizontalAlignment="Left" Margin="10,41,0,0" Grid.Row="1" VerticalAlignment="Top" Height="26" Width="31"/>
         <Label x:Name="label4" Content="&lt;=x&lt;=" HorizontalAlignment="Left" Margin="116,41,0,0" Grid.Row="1" VerticalAlignment="Top" Height="26" Width="48"/>
@@ -27,23 +27,26 @@
         <Button x:Name="button_Copy" Content="+∞" HorizontalAlignment="Left" Margin="204,45,0,0" Grid.Row="1" VerticalAlignment="Top" Width="30" Height="23" Click="button_Copy_Click"/>
         <Label x:Name="label5" Content="U(x,0):" HorizontalAlignment="Left" Margin="20,103,0,0" Grid.Row="1" VerticalAlignment="Top" Height="26" Width="43"/>
         <Label x:Name="label5_Copy" Content="Ut(x,0):" HorizontalAlignment="Left" Margin="20,134,0,0" Grid.Row="1" VerticalAlignment="Top" Height="26" Width="47"/>
-        <TextBox x:Name="textBox" Height="23" Margin="63,107,10,0" Grid.Row="1" TextWrapping="Wrap" Text="0" VerticalAlignment="Top"/>
-        <TextBox x:Name="textBox1" Height="23" Margin="67,138,10,0" Grid.Row="1" TextWrapping="Wrap" Text="0" VerticalAlignment="Top"/>
+        <TextBox x:Name="phi_box" Height="23" Margin="63,107,134,0" Grid.Row="1" TextWrapping="Wrap" Text="0" VerticalAlignment="Top"/>
+        <TextBox x:Name="psi_box" Height="23" Margin="67,138,134,0" Grid.Row="1" TextWrapping="Wrap" Text="0" VerticalAlignment="Top"/>
         <Label x:Name="label2" Content="Начальные условия:" HorizontalAlignment="Left" Margin="10,72,0,0" Grid.Row="1" VerticalAlignment="Top" Height="26" Width="122"/>
         <Label x:Name="label2_Copy" Content="Граничные условия:" HorizontalAlignment="Left" Margin="10,165,0,0" Grid.Row="1" VerticalAlignment="Top" Height="26" Width="121"/>
         <Label x:Name="label6" Content="Левая граница:" HorizontalAlignment="Left" Margin="20,196,0,0" Grid.Row="1" VerticalAlignment="Top" Height="26" Width="94"/>
-        <RadioButton x:Name="radioButton" Content="1 рода" HorizontalAlignment="Left" Margin="121,202,0,0" Grid.Row="1" VerticalAlignment="Top" IsChecked="True" GroupName="left_bound" Height="15" Width="56"/>
-        <RadioButton x:Name="radioButton1" Content="2 рода" HorizontalAlignment="Left" Margin="121,222,0,0" Grid.Row="1" VerticalAlignment="Top" GroupName="left_bound" Height="15" Width="56"/>
-        <Label x:Name="first_left_bound_label" Content="U(-∞,t):" HorizontalAlignment="Left" Margin="182,196,0,0" Grid.Row="1" VerticalAlignment="Top" Height="26" Width="93"/>
-        <Label x:Name="two_left_bound_label" Content="Ux(-∞,t):" HorizontalAlignment="Left" Margin="182,216,0,0" Grid.Row="1" VerticalAlignment="Top" Height="26" Width="93"/>
-        <TextBox x:Name="left_bound_box" Height="46" Margin="280,196,10,0" Grid.Row="1" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" VerticalContentAlignment="Center"/>
+        <RadioButton x:Name="first_left_radio_button" Content="1 рода" HorizontalAlignment="Left" Margin="121,202,0,0" Grid.Row="1" VerticalAlignment="Top" IsChecked="True" GroupName="left_bound" Height="15" Width="56" IsEnabled="False"/>
+        <RadioButton x:Name="two_left_radio_button" Content="2 рода" HorizontalAlignment="Left" Margin="121,222,0,0" Grid.Row="1" VerticalAlignment="Top" GroupName="left_bound" Height="15" Width="56" IsEnabled="False"/>
+        <Label x:Name="first_left_bound_label" Content="U(-∞,t):" HorizontalAlignment="Left" Margin="182,196,0,0" Grid.Row="1" VerticalAlignment="Top" Height="26" Width="93" IsEnabled="False"/>
+        <Label x:Name="two_left_bound_label" Content="Ux(-∞,t):" HorizontalAlignment="Left" Margin="182,216,0,0" Grid.Row="1" VerticalAlignment="Top" Height="26" Width="93" IsEnabled="False"/>
+        <TextBox x:Name="left_bound_box" Height="46" Margin="280,196,10,0" Grid.Row="1" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" VerticalContentAlignment="Center" IsEnabled="False"/>
         <Label x:Name="label6_Copy" Content="Правая граница:" HorizontalAlignment="Left" Margin="20,247,0,0" Grid.Row="1" VerticalAlignment="Top" Height="26" Width="101"/>
-        <RadioButton x:Name="radioButton_Copy" Content="1 рода" HorizontalAlignment="Left" Margin="121,253,0,0" Grid.Row="1" VerticalAlignment="Top" IsChecked="True" GroupName="right_bound" Height="15" Width="56"/>
-        <RadioButton x:Name="radioButton1_Copy" Content="2 рода" HorizontalAlignment="Left" Margin="121,273,0,0" Grid.Row="1" VerticalAlignment="Top" GroupName="right_bound" Height="15" Width="56"/>
-        <Label x:Name="first_right_bound_label" Content="U(+∞,t):" HorizontalAlignment="Left" Margin="182,247,0,0" Grid.Row="1" VerticalAlignment="Top" Height="26" Width="93"/>
-        <Label x:Name="two_right_bound_label" Content="Ux(+∞,t):" HorizontalAlignment="Left" Margin="182,267,0,0" Grid.Row="1" VerticalAlignment="Top" Height="26" Width="93"/>
-        <TextBox x:Name="right_bound_box" Height="46" Margin="280,247,10,0" Grid.Row="1" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" VerticalContentAlignment="Center"/>
-        <Button x:Name="button1" Content="Расчёт" Margin="10,298,10,0" Grid.Row="1" Height="20" VerticalAlignment="Top"/>
+        <RadioButton x:Name="first_right_radio_button" Content="1 рода" HorizontalAlignment="Left" Margin="121,253,0,0" Grid.Row="1" VerticalAlignment="Top" IsChecked="True" GroupName="right_bound" Height="15" Width="56" IsEnabled="False"/>
+        <RadioButton x:Name="two_right_radio_button" Content="2 рода" HorizontalAlignment="Left" Margin="121,273,0,0" Grid.Row="1" VerticalAlignment="Top" GroupName="right_bound" Height="15" Width="56" IsEnabled="False"/>
+        <Label x:Name="first_right_bound_label" Content="U(+∞,t):" HorizontalAlignment="Left" Margin="182,247,0,0" Grid.Row="1" VerticalAlignment="Top" Height="26" Width="93" IsEnabled="False"/>
+        <Label x:Name="two_right_bound_label" Content="Ux(+∞,t):" HorizontalAlignment="Left" Margin="182,267,0,0" Grid.Row="1" VerticalAlignment="Top" Height="26" Width="93" IsEnabled="False"/>
+        <TextBox x:Name="right_bound_box" Height="46" Margin="280,247,10,0" Grid.Row="1" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" VerticalContentAlignment="Center" IsEnabled="False"/>
+        <Button x:Name="button1" Content="Расчёт" Margin="10,298,10,0" Grid.Row="1" Height="20" VerticalAlignment="Top" Click="button1_Click"/>
+        <TextBox x:Name="begin_cond_left_bound_box" Height="54" Margin="0,107,72,0" Grid.Row="1" TextWrapping="Wrap" Text="-1" VerticalAlignment="Top" HorizontalAlignment="Right" Width="57" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="begin_cond_right_bound_box" Height="54" Margin="0,107,10,0" Grid.Row="1" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" HorizontalAlignment="Right" Width="57" VerticalContentAlignment="Center"/>
+        <Label x:Name="label7" Content="Границы нач. усл." Margin="0,72,10,0" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Right" Width="119" HorizontalContentAlignment="Center"/>
 
     </Grid>
 </Window>

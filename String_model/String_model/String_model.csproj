@@ -38,6 +38,9 @@
     <Reference Include="Apex">
       <HintPath>..\Apex.dll</HintPath>
     </Reference>
+    <Reference Include="FunctionsAndParsing">
+      <HintPath>..\FunctionsAndParsing.dll</HintPath>
+    </Reference>
     <Reference Include="MathNet.Numerics">
       <HintPath>..\MathNet.Numerics.dll</HintPath>
     </Reference>
@@ -70,6 +73,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="StringModelException.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
